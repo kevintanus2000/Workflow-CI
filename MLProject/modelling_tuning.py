@@ -131,7 +131,7 @@ def train_with_tuning():
     best_params = grid_search.best_params_
     best_model  = grid_search.best_estimator_
 
-    with mlflow.start_run(run_name="RandomForest_Tuned"):
+    with mlflow.start_run(run_name="RandomForest_Tuned", nested=True):
         y_pred       = best_model.predict(X_test)
         y_pred_proba = best_model.predict_proba(X_test)
 
