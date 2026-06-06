@@ -164,7 +164,7 @@ jobs:
         run: |
           docker tag \
             ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:${{ env.RUN_ID }} \
-            ${{ secrets.WORKFLOW_CI_DOCKER }}/workflow-ci-model:latest
+            ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:latest
 
           echo "Tagged images:"
           docker images | grep workflow-ci-model
