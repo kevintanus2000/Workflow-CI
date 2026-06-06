@@ -149,7 +149,6 @@ jobs:
               mlflow models build-docker \
                 -m "$MODEL_URI" \
                 -n "${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:${{ env.RUN_ID }}" \
-                --enable-mlserver
             else
               echo "No MLflow model found, skipping Docker build"
               exit 1
