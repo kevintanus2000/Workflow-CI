@@ -1,0 +1,15 @@
+artifact_uri: file:///home/runner/work/Workflow-CI/Workflow-CI/MLProject/mlruns/923806569343596671/cbbd1b05f03648d687fc6152317523b9/artifacts
+end_time: 1780736234762
+entry_point_name: ''
+experiment_id: '923806569343596671'
+lifecycle_stage: active
+run_id: cbbd1b05f03648d687fc6152317523b9
+run_name: gifted-pig-251
+run_uuid: cbbd1b05f03648d687fc6152317523b9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780736082382
+status: 3
+tags: []
+user_id: runner
