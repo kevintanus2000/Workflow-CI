@@ -1,0 +1,15 @@
+artifact_uri: file:///home/runner/work/Workflow-CI/Workflow-CI/MLProject/mlruns/0/b655e50cbdde47c6a868213da9c3b01f/artifacts
+end_time: 1780733217847
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b655e50cbdde47c6a868213da9c3b01f
+run_name: nervous-ray-34
+run_uuid: b655e50cbdde47c6a868213da9c3b01f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780733215709
+status: 4
+tags: []
+user_id: runner
