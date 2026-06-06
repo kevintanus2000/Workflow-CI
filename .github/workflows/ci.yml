@@ -140,7 +140,6 @@ jobs:
             mlflow models build-docker \
               -m "$MODEL_URI" \
               -n "${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:${{ env.RUN_ID }}" \
-              --enable-mlserver
           else
             # Fallback: search for model artifact
             MODEL_URI=$(find MLProject/mlruns -name "MLmodel" | head -1 | xargs dirname 2>/dev/null || echo "")
