@@ -132,27 +132,21 @@ jobs:
           # Install Docker (already available on ubuntu-latest)
           docker --version
 
-          # Build docker image from the best MLflow model
-          MODEL_URI="MLProject/mlruns/0/${{ env.RUN_ID }}/artifacts/model"
+          MODEL_URI=$(find MLProject/mlruns -name "MLmodel" | head -1 | xargs dirname 2>/dev/null || echo "")
+          echo "Model ditemukan di: $MODEL_URI"
 
-          if [ -d "$MODEL_URI" ]; then
-            echo "Building Docker image from model at: $MODEL_URI"
-            mlflow models build-docker \
-              -m "$MODEL_URI" \
-              -n "${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:${{ env.RUN_ID }}" \
-          else
-            # Fallback: search for model artifact
-            MODEL_URI=$(find MLProject/mlruns -name "MLmodel" | head -1 | xargs dirname 2>/dev/null || echo "")
-            if [ -n "$MODEL_URI" ]; then
-              echo "Found model at: $MODEL_URI"
-              mlflow models build-docker \
-                -m "$MODEL_URI" \
-                -n "${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:${{ env.RUN_ID }}" \
-            else
-              echo "No MLflow model found, skipping Docker build"
-              exit 1
-            fi
+          if [ -z "$MODEL_URI" ]; then
+            echo "No MLflow model found"
+            find MLProject/mlruns -type f | sort
+            exit 1
           fi
+
+          mlflow models build-docker \
+            -m "$MODEL_URI" \
+            -n "${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:${{ env.RUN_ID }}"
+
+          echo "=== Images setelah build ==="
+          docker images
       # Log in to Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -162,6 +156,9 @@ jobs:
       # Tag Docker Image
       - name: Tag Docker Image
         run: |
+          echo "Docker username: ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}"
+          echo "Docker secret2: ${{ secrets.WORKFLOW_CI_DOCKER }}"
+          
           docker tag \
             ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:${{ env.RUN_ID }} \
             ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:latest
