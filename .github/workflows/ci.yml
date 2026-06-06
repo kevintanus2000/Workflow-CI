@@ -41,7 +41,9 @@ jobs:
             "numpy>=1.24.0" \
             "matplotlib>=3.7.0" \
             "seaborn>=0.12.0" \
-            "joblib>=1.3.0"
+            "joblib>=1.3.0" \
+            "protobuf>=5.0" \
+            "dagshub"
           # Install conda for mlflow run
           pip install conda-pack
       # Run MLflow Project
@@ -103,14 +105,14 @@ jobs:
           # Set remote URL dengan token agar bisa push
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-          mkdir -p artifacts/run_${{ env.RUN_ID }}
+          mkdir -p MLProject/artifacts/run_${{ env.RUN_ID }}
 
           if [ -d "MLProject/mlruns" ]; then
-            cp -r MLProject/mlruns artifacts/run_${{ env.RUN_ID }}/
+            cp -r MLProject/mlruns MLProject/artifacts/run_${{ env.RUN_ID }}/
           fi
 
           if [ -f "mlflow_run.log" ]; then
-            cp mlflow_run.log artifacts/run_${{ env.RUN_ID }}/
+            cp mlflow_run.log MLProject/artifacts/run_${{ env.RUN_ID }}/
           fi
 
           echo "Run ID: ${{ env.RUN_ID }}" > artifacts/run_${{ env.RUN_ID }}/run_info.txt
@@ -118,9 +120,7 @@ jobs:
           echo "Triggered by: ${{ github.actor }}" >> artifacts/run_${{ env.RUN_ID }}/run_info.txt
           echo "Commit: ${{ github.sha }}" >> artifacts/run_${{ env.RUN_ID }}/run_info.txt
 
-          rm -f =*
-
-          git add artifacts/
+          git add MLProject/artifacts/
           git diff --staged --quiet || git commit -m "ci: save MLflow artifacts for run ${{ env.RUN_ID }} [skip ci]"
           git push origin main
         env:
