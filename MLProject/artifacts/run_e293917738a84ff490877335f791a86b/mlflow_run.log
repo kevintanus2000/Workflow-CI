@@ -1,0 +1,11 @@
+2026/06/06 09:02:30 INFO mlflow.projects: 'Iris_Modelling_Tuning' does not exist. Creating a new experiment
+2026/06/06 09:02:31 INFO mlflow.projects.utils: === Created directory /tmp/tmpo_cat27c for downloading remote URIs passed to arguments of type 'path' ===
+2026/06/06 09:02:31 INFO mlflow.projects.backend.local: === Running command 'printf '
+' | python modelling_tuning.py --dummy 0' in run with ID 'e293917738a84ff490877335f791a86b' === 
+Tracking destination [local/dagshub] (default: local): Menjalankan GridSearchCV
+Fitting 5 folds for each of 288 candidates, totalling 1440 fits
+/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/mlflow/types/utils.py:435: UserWarning: Hint: Inferred schema contains integer column(s). Integer columns in Python cannot represent missing values. If your input data contains missing values at inference time, it will be encoded as floats and will cause a schema enforcement error. The best way to avoid this problem is to infer the model schema based on a realistic data sample (training dataset) that includes missing values. Alternatively, you can declare integer columns as doubles (float64) whenever these columns may have missing values. See `Handling Integers With Missing Values <https://www.mlflow.org/docs/latest/models.html#handling-integers-with-missing-values>`_ for more details.
+  warnings.warn(
+Training : 0.9828 | Test : 0.9310
+Best CV  : 0.9826
+2026/06/06 09:05:06 INFO mlflow.projects: === Run (ID 'e293917738a84ff490877335f791a86b') succeeded ===

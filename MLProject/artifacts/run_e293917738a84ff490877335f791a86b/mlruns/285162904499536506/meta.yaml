@@ -1,0 +1,6 @@
+artifact_location: file:///home/runner/work/Workflow-CI/Workflow-CI/MLProject/mlruns/285162904499536506
+creation_time: 1780736550981
+experiment_id: '285162904499536506'
+last_update_time: 1780736550981
+lifecycle_stage: active
+name: Iris_Modelling_Tuning
