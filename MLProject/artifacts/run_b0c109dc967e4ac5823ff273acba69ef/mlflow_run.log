@@ -1,0 +1,16 @@
+2026/06/06 08:27:44 INFO mlflow.projects.utils: === Created directory /tmp/tmpivcp06qr for downloading remote URIs passed to arguments of type 'path' ===
+2026/06/06 08:27:44 INFO mlflow.projects.backend.local: === Running command 'printf '
+' | python modelling_tuning.py --dummy 0' in run with ID 'b0c109dc967e4ac5823ff273acba69ef' === 
+Tracking destination [local/dagshub] (default: local): 2026/06/06 08:27:48 INFO mlflow.tracking.fluent: Experiment with name 'Iris_Modelling_Tuning' does not exist. Creating a new experiment.
+Menjalankan GridSearchCV
+Fitting 5 folds for each of 288 candidates, totalling 1440 fits
+Traceback (most recent call last):
+  File "/home/runner/work/Workflow-CI/Workflow-CI/MLProject/modelling_tuning.py", line 185, in <module>
+    train_with_tuning()
+  File "/home/runner/work/Workflow-CI/Workflow-CI/MLProject/modelling_tuning.py", line 134, in train_with_tuning
+    with mlflow.start_run(run_name="RandomForest_Tuned"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/mlflow/tracking/fluent.py", line 374, in start_run
+    raise MlflowException(
+mlflow.exceptions.MlflowException: Cannot start run with ID b0c109dc967e4ac5823ff273acba69ef because active run ID does not match environment run ID. Make sure --experiment-name or --experiment-id matches experiment set with set_experiment(), or just use command-line arguments
+2026/06/06 08:30:28 ERROR mlflow.cli: === Run (ID 'b0c109dc967e4ac5823ff273acba69ef') failed ===
