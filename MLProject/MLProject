@@ -4,4 +4,4 @@ conda_env: conda.yaml
 
 entry_points:
   main:
-    command: "printf '\n' | python modelling.py"
+    command: "printf '\n' | python modelling_tuning.py"
