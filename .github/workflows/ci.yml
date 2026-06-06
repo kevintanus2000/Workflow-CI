@@ -133,7 +133,7 @@ jobs:
             echo "Building Docker image from model at: $MODEL_URI"
             mlflow models build-docker \
               -m "$MODEL_URI" \
-              -n "${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/ml-model:${{ env.RUN_ID }}" \
+              -n "${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:${{ env.RUN_ID }}" \
               --enable-mlserver
           else
             # Fallback: search for model artifact
@@ -142,7 +142,7 @@ jobs:
               echo "Found model at: $MODEL_URI"
               mlflow models build-docker \
                 -m "$MODEL_URI" \
-                -n "${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/ml-model:${{ env.RUN_ID }}" \
+                -n "${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:${{ env.RUN_ID }}" \
                 --enable-mlserver
             else
               echo "No MLflow model found, skipping Docker build"
@@ -159,16 +159,16 @@ jobs:
       - name: Tag Docker Image
         run: |
           docker tag \
-            ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/ml-model:${{ env.RUN_ID }} \
-            ${{ secrets.WORKFLOW_CI_DOCKER }}/ml-model:latest
+            ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:${{ env.RUN_ID }} \
+            ${{ secrets.WORKFLOW_CI_DOCKER }}/workflow-ci-model:latest
 
           echo "Tagged images:"
-          docker images | grep ml-model
+          docker images | grep workflow-ci-model
       # Push Docker Image
       - name: Push Docker Image
         run: |
-          docker push ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/ml-model:${{ env.RUN_ID }}
-          docker push ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/ml-model:latest
+          docker push ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:${{ env.RUN_ID }}
+          docker push ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:latest
           echo "Pushed to Docker Hub:"
-          echo "  ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/ml-model:${{ env.RUN_ID }}"
-          echo "  ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/ml-model:latest"
+          echo "  ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:${{ env.RUN_ID }}"
+          echo "  ${{ secrets.WORKFLOW_CI_DOCKER_USERNAME }}/workflow-ci-model:latest"
