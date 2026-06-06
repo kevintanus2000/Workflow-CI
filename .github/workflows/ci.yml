@@ -115,10 +115,10 @@ jobs:
             cp mlflow_run.log MLProject/artifacts/run_${{ env.RUN_ID }}/
           fi
 
-          echo "Run ID: ${{ env.RUN_ID }}" > artifacts/run_${{ env.RUN_ID }}/run_info.txt
-          echo "Timestamp: $(date -u)" >> artifacts/run_${{ env.RUN_ID }}/run_info.txt
-          echo "Triggered by: ${{ github.actor }}" >> artifacts/run_${{ env.RUN_ID }}/run_info.txt
-          echo "Commit: ${{ github.sha }}" >> artifacts/run_${{ env.RUN_ID }}/run_info.txt
+          echo "Run ID: ${{ env.RUN_ID }}" > MLProject/artifacts/run_${{ env.RUN_ID }}/run_info.txt
+          echo "Timestamp: $(date -u)" >> MLProject/artifacts/run_${{ env.RUN_ID }}/run_info.txt
+          echo "Triggered by: ${{ github.actor }}" >> MLProject/artifacts/run_${{ env.RUN_ID }}/run_info.txt
+          echo "Commit: ${{ github.sha }}" >> MLProject/artifacts/run_${{ env.RUN_ID }}/run_info.txt
 
           git add MLProject/artifacts/
           git diff --staged --quiet || git commit -m "ci: save MLflow artifacts for run ${{ env.RUN_ID }} [skip ci]"
