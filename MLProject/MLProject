@@ -1,0 +1,7 @@
+name: ml_workflow_ci
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    command: "printf '\n' | python modelling.py"
