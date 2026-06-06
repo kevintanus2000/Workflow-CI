@@ -36,7 +36,7 @@ def save_metric_info_json(model, filename='metric_info.json'):
 
 def setup_mlflow(tracking: str = "local"):
     if tracking.lower() in ("local", ""):
-        mlflow.set_tracking_uri("http://127.0.0.1:5000/")
+        mlflow.set_tracking_uri("mlruns")
         mlflow.set_experiment("Iris_Modelling_Tuning")
     else:
         DAGSHUB_USERNAME = "kevintanus2000"
