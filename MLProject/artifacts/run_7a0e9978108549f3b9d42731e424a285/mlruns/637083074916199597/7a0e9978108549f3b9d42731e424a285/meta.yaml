@@ -1,0 +1,15 @@
+artifact_uri: file:///home/runner/work/Workflow-CI/Workflow-CI/MLProject/mlruns/637083074916199597/7a0e9978108549f3b9d42731e424a285/artifacts
+end_time: 1780738916875
+entry_point_name: ''
+experiment_id: '637083074916199597'
+lifecycle_stage: active
+run_id: 7a0e9978108549f3b9d42731e424a285
+run_name: nebulous-colt-167
+run_uuid: 7a0e9978108549f3b9d42731e424a285
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780738750834
+status: 3
+tags: []
+user_id: runner
