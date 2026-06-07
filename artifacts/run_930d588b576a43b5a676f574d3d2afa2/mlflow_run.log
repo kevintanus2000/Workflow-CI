@@ -1,8 +1,0 @@
-2026/06/06 07:44:53 INFO mlflow.projects.utils: === Created directory /tmp/tmpjqomovg0 for downloading remote URIs passed to arguments of type 'path' ===
-2026/06/06 07:44:53 INFO mlflow.projects.backend.local: === Running command 'printf '
-' | python modelling_tuning.py --dummy 0' in run with ID '930d588b576a43b5a676f574d3d2afa2' === 
-Traceback (most recent call last):
-  File "/home/runner/work/Workflow-CI/Workflow-CI/MLProject/modelling_tuning.py", line 4, in <module>
-    import dagshub
-ModuleNotFoundError: No module named 'dagshub'
-2026/06/06 07:44:55 ERROR mlflow.cli: === Run (ID '930d588b576a43b5a676f574d3d2afa2') failed ===
