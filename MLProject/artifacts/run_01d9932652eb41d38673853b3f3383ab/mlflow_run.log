@@ -1,0 +1,45 @@
+2026/06/08 12:14:57 INFO mlflow.projects: 'Breast_Cancer_Modelling_Tuning' does not exist. Creating a new experiment
+2026/06/08 12:14:58 INFO mlflow.projects.utils: === Created directory /tmp/tmplxnvytto for downloading remote URIs passed to arguments of type 'path' ===
+2026/06/08 12:14:58 INFO mlflow.projects.backend.local: === Running command 'printf '
+' | python modelling_tuning.py --dummy 0' in run with ID '01d9932652eb41d38673853b3f3383ab' === 
+Tracking destination [local/dagshub] (default: local): Menjalankan GridSearchCV
+Fitting 5 folds for each of 288 candidates, totalling 1440 fits
+Traceback (most recent call last):
+  File "/home/runner/work/Workflow-CI/Workflow-CI/MLProject/modelling_tuning.py", line 185, in <module>
+    train_with_tuning()
+  File "/home/runner/work/Workflow-CI/Workflow-CI/MLProject/modelling_tuning.py", line 161, in train_with_tuning
+    roc_auc_score(y_test, y_pred_proba, multi_class='ovr', average='weighted'))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/sklearn/utils/_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/sklearn/metrics/_ranking.py", line 733, in roc_auc_score
+    return _average_binary_score(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/sklearn/metrics/_base.py", line 77, in _average_binary_score
+    return binary_metric(y_true, y_score, sample_weight=sample_weight)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/sklearn/metrics/_ranking.py", line 478, in _binary_roc_auc_score
+    fpr, tpr, _ = roc_curve(y_true, y_score, sample_weight=sample_weight)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/sklearn/utils/_param_validation.py", line 191, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/sklearn/metrics/_ranking.py", line 1319, in roc_curve
+    _, fps, _, tps, thresholds = confusion_matrix_at_thresholds(
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/sklearn/utils/validation.py", line 80, in inner_f
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/sklearn/utils/_param_validation.py", line 191, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/sklearn/metrics/_ranking.py", line 1021, in confusion_matrix_at_thresholds
+    _sort_inputs_and_compute_classification_thresholds(
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/sklearn/metrics/_ranking.py", line 894, in _sort_inputs_and_compute_classification_thresholds
+    y_score = column_or_1d(y_score)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/sklearn/utils/validation.py", line 1447, in column_or_1d
+    raise ValueError(
+ValueError: y should be a 1d array, got an array of shape (114, 2) instead.
+2026/06/08 12:17:47 ERROR mlflow.cli: === Run (ID '01d9932652eb41d38673853b3f3383ab') failed ===
