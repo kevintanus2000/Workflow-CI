@@ -37,10 +37,10 @@ def save_metric_info_json(model, filename='metric_info.json'):
 def setup_mlflow(tracking: str = "local"):
     if tracking.lower() in ("local", ""):
         mlflow.set_tracking_uri("mlruns")
-        mlflow.set_experiment("Iris_Modelling_Tuning")
+        mlflow.set_experiment("Breast_Cancer_Modelling_Tuning")
     else:
         DAGSHUB_USERNAME = "kevintanus2000"
-        REPO_NAME = "iris-mlflow-project"
+        REPO_NAME = "breast-cancer-mlflow-project"
         TOKEN = "9f2a913dc6316f9ffea25b302892fef310432484"
         os.environ['MLFLOW_TRACKING_USERNAME'] = DAGSHUB_USERNAME
         os.environ['MLFLOW_TRACKING_PASSWORD'] = TOKEN
@@ -49,7 +49,7 @@ def setup_mlflow(tracking: str = "local"):
         mlflow.set_tracking_uri(
             f'https://dagshub.com/{DAGSHUB_USERNAME}/{REPO_NAME}.mlflow'
         )
-        mlflow.set_experiment("Iris_Modelling_Tuning")
+        mlflow.set_experiment("Breast_Cancer_Modelling_Tuning")
 
 def save_confusion_matrix(y_test, y_pred, title, filename):
     cm = confusion_matrix(y_test, y_pred)
@@ -105,7 +105,7 @@ def save_hyperparam_heatmap(cv_results, filename='hyperparam_heatmap.png'):
 def train_with_tuning():
     tracking = input("Tracking destination [local/dagshub] (default: local): ").strip().lower()
     setup_mlflow(tracking)
-    df = pd.read_csv('iris_cleaned.csv')
+    df = pd.read_csv('breast_cancer_cleaned.csv')
     X  = df.drop('target', axis=1)
     y  = df['target']
     X_train, X_test, y_train, y_test = train_test_split(
