@@ -126,7 +126,7 @@ jobs:
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # Build Docker Image using mlflow build-docker
+      #Build Docker Image using mlflow build-docker
       - name: Build Docker Model
         run: |
           # Install Docker (already available on ubuntu-latest)
