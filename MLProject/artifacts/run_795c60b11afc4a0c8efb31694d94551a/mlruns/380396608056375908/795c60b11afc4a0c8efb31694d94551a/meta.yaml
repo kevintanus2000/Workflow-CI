@@ -1,0 +1,15 @@
+artifact_uri: file:///home/runner/work/Workflow-CI/Workflow-CI/MLProject/mlruns/380396608056375908/795c60b11afc4a0c8efb31694d94551a/artifacts
+end_time: 1780921614428
+entry_point_name: ''
+experiment_id: '380396608056375908'
+lifecycle_stage: active
+run_id: 795c60b11afc4a0c8efb31694d94551a
+run_name: useful-sloth-641
+run_uuid: 795c60b11afc4a0c8efb31694d94551a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780921430922
+status: 4
+tags: []
+user_id: runner
