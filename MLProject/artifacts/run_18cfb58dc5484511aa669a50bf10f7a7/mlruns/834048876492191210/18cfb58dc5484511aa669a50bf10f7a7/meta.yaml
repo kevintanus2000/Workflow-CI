@@ -1,0 +1,15 @@
+artifact_uri: file:///home/runner/work/Workflow-CI/Workflow-CI/MLProject/mlruns/834048876492191210/18cfb58dc5484511aa669a50bf10f7a7/artifacts
+end_time: 1780922847791
+entry_point_name: ''
+experiment_id: '834048876492191210'
+lifecycle_stage: active
+run_id: 18cfb58dc5484511aa669a50bf10f7a7
+run_name: auspicious-sheep-142
+run_uuid: 18cfb58dc5484511aa669a50bf10f7a7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780922666271
+status: 3
+tags: []
+user_id: runner
