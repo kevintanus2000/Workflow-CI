@@ -1,0 +1,15 @@
+artifact_uri: file:///home/runner/work/Workflow-CI/Workflow-CI/MLProject/mlruns/136685935736087690/4cc578f348f34cb18fd0d15cfa4aba2b/artifacts
+end_time: 1780920695337
+entry_point_name: ''
+experiment_id: '136685935736087690'
+lifecycle_stage: active
+run_id: 4cc578f348f34cb18fd0d15cfa4aba2b
+run_name: big-yak-355
+run_uuid: 4cc578f348f34cb18fd0d15cfa4aba2b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780920690256
+status: 4
+tags: []
+user_id: runner
