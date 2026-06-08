@@ -158,7 +158,8 @@ def train_with_tuning():
         mlflow.log_metric("f1_weighted",
             f1_score(y_test, y_pred, average='weighted'))
         mlflow.log_metric("roc_auc_ovr",
-            roc_auc_score(y_test, y_pred_proba, multi_class='ovr', average='weighted'))
+            roc_auc_score(y_test, y_pred_proba[:, 1])
+        )
 
         # Log Artifacts
         mlflow.log_artifact(save_confusion_matrix(
