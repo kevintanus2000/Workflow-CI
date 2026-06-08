@@ -52,7 +52,7 @@ jobs:
           cd MLProject
           mlflow run . \
             --env-manager=local \
-            --experiment-name "Iris_Modelling_Tuning" \
+            --experiment-name "Breast_Cancer_Modelling_Tuning" \
             -P dummy=0 2>&1 | tee ../mlflow_run.log || true
           echo "MLflow run completed"
         env:
