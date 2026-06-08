@@ -1,0 +1,28 @@
+2026/06/08 12:13:28 INFO mlflow.projects: 'Breast_Cancer_Modelling_Tuning' does not exist. Creating a new experiment
+2026/06/08 12:13:28 INFO mlflow.projects.utils: === Created directory /tmp/tmp8rfet5bi for downloading remote URIs passed to arguments of type 'path' ===
+2026/06/08 12:13:28 INFO mlflow.projects.backend.local: === Running command 'printf '
+' | python modelling_tuning.py --dummy 0' in run with ID '714cbadb36c34d39b622a2ad24589a58' === 
+Tracking destination [local/dagshub] (default: local): 2026/06/08 12:13:31 INFO mlflow.tracking.fluent: Experiment with name 'Iris_Modelling_Tuning' does not exist. Creating a new experiment.
+Traceback (most recent call last):
+  File "/home/runner/work/Workflow-CI/Workflow-CI/MLProject/modelling_tuning.py", line 185, in <module>
+    train_with_tuning()
+  File "/home/runner/work/Workflow-CI/Workflow-CI/MLProject/modelling_tuning.py", line 108, in train_with_tuning
+    df = pd.read_csv('iris_cleaned.csv')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'iris_cleaned.csv'
+2026/06/08 12:13:31 ERROR mlflow.cli: === Run (ID '714cbadb36c34d39b622a2ad24589a58') failed ===
